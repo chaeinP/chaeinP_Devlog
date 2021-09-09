@@ -1,7 +1,7 @@
 ---
 title: React_props와 state
 date: '2021-07-09'
-tags: ['JSX']
+tags: ['REACT']
 draft: false
 summary: 리액트 데이터 흐름의 핵심, props와 state(reach hook 등장 이전을 중심으로)
 ---

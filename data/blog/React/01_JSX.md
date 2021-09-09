@@ -1,7 +1,7 @@
 ---
 title: React_JSX 규칙
 date: '2021-07-09'
-tags: ['JSX']
+tags: ['REACT']
 draft: false
 summary: 자바스크립트도 html도 아닌 JSX만의 규칙!
 ---
