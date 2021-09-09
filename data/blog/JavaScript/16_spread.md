@@ -124,8 +124,8 @@ console.log(latte) // {esspresso: '30ml', milk:'150ml'}
 console.log(cafeMocha) // {esspresso: '30ml', milk:'150ml', chocolate: '20ml'}
 ```
 
-<span style =" color: red">객체 Spread 구문을 사용해서 새로운 배열을 만든다거나 함수의 아규먼트로 사용할 수는 없다.
-그렇기 때문에 객체를 spread할 때는 반드시 객체를 표현하는 중괄호 안에서 활용해야 한다.</span>
+객체 Spread 구문을 사용해서 새로운 배열을 만든다거나 함수의 아규먼트로 사용할 수는 없다.
+그렇기 때문에 객체를 spread할 때는 반드시 객체를 표현하는 중괄호 안에서 활용해야 한다.
 
 ```jsx
 const latte = {

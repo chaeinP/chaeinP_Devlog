@@ -57,8 +57,6 @@ const newToday = document.querySelector('#today')
 newToday.outerHTML = newToday.outerHTML + '<p>다음</p>'
 ```
 
-</br>
-
 **요소 노드 추가하기**
 
 ```jsx

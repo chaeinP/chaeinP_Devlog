@@ -50,7 +50,7 @@ console.log(link) // <a href="https://www.codeit.kr">자바스크립트 공부</
 console.log(link.href) // "https://developer.mozilla.org/ko/docs/Web/JavaScript"
 ```
 
-> <ol> 태그에 href 속성을 추가하는 건 html 표준이 아니다.
+> `<ol>` 태그에 href 속성을 추가하는 건 html 표준이 아니다.
 
 ```jsx
 console.log(tomorrow.href) // undefined , 표준 속성이 아닌 경우 undefined 출력
