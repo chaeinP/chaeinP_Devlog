@@ -9,7 +9,8 @@
     "serve": "next start",
     "analyze": "cross-env ANALYZE=true next build",
     "lint": "next lint --fix --dir pages --dir components --dir lib --dir layouts --dir scripts",
-    "prepare": "husky install"
+    "prepare": "husky install",
+    "deploy-gh-pages": "rm -rf node_modules/.cache && next build && next export && touch out/.nojekyll && git add -f out/ && git checkout -b temp-for-deploy-gh-pages && git commit -m \"Deploy Next.js to gh-pages\" && git subtree split --prefix out -b gh-pages && git push -f origin gh-pages:gh-pages && git branch -D gh-pages && git checkout main && git branch -D temp-for-deploy-gh-pages"
   },
   "dependencies": {
     "@tailwindcss/forms": "^0.3.2",
@@ -21,6 +22,7 @@
     "image-size": "1.0.0",
     "mdx-bundler": "^6.0.1",
     "next": "11.1.2",
+    "next-images": "^1.8.1",
     "next-themes": "^0.0.14",
     "postcss": "^8.3.5",
     "preact": "^10.5.13",
