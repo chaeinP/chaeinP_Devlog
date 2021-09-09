@@ -124,7 +124,6 @@ export const BlogSEO = ({ authorDetails, title, summary, date, lastmod, url, ima
   }
 
   const twImageUrl = featuredImages[0].url
-
   return (
     <>
       <CommonSEO
@@ -144,14 +143,6 @@ export const BlogSEO = ({ authorDetails, title, summary, date, lastmod, url, ima
             __html: JSON.stringify(structuredData, null, 2),
           }}
         />
-        <script async src="https://www.googletagmanager.com/gtag/js?id=G-LDESPX2T1T"/>
-        <script>
-          window.dataLayer = window.dataLayer || [];
-          function gtag(){dataLayer.push(arguments);}
-          gtag('js', new Date());
-
-          gtag('config', 'G-LDESPX2T1T');
-        </script>
       </Head>
     </>
   )
