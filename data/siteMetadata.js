@@ -7,8 +7,8 @@ const siteMetadata = {
   headerTitle: 'ChaeinP_Devlog',
   description: '매일 공부하고 느끼고 생각한 것을 기록합니다.',
   language: 'ko-kr',
-  siteUrl: 'https://chaein-p-devlog.vercel.app/',
-  siteRepo: 'https://github.com/chaeinP/chaeinP_Devlog',
+  siteUrl: 'https://chaeinp.vercel.app/',
+  siteRepo: 'https://chaeinp.vercel.app/',
   // siteLogo: '/static/images/logo.png',
   image: '/static/images/profile.jpeg',
   socialBanner: '/static/images/twitter-card.jpeg',
@@ -23,7 +23,7 @@ const siteMetadata = {
     // supports plausible, simpleAnalytics or googleAnalytics
     plausibleDataDomain: '', // e.g. tailwind-nextjs-starter-blog.vercel.app
     simpleAnalytics: false, // true or false
-    googleAnalyticsId: 'G-LDESPX2T1T', // e.g. UA-000000-2 or G-XXXXXXX
+    googleAnalyticsId: 'G-LWPW209Q1G', // e.g. UA-000000-2 or G-XXXXXXX
   },
   comment: {
     // Select a provider and use the environment variables associated to it
