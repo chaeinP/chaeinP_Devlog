@@ -20,6 +20,22 @@ summary: 쉘과 커널 기초
 
   : 컴퓨터 사용자가 shell에 명령을 입력하면 shell은 해당 명령은 kernel이 이해할 수 있는 언어로 바꾸어 전달하는 인터페이스
 
-### bash와 zsh
+## shell과 관련한 명령어
 
-bash와 zsh는 대표적인 두가지 쉘 프로그램이다. bash보다 늦게 나온 zsh는 bash보다 좀 더 편리하다는 평가를 받는다.
+- 운영체제 내 사용가능한 shell 종류 확인하는 법
+
+```s
+cat /etc/shells
+```
+
+- 현재 사용중인 shell 확인하기
+
+```sh
+echo $SHELL
+```
+
+- 기본 shell 변경하기
+
+```s
+sudo chsh 사용자_이름
+```

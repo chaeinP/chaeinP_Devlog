@@ -10,7 +10,7 @@ summary: IO redirection 이해하기
 
 입출력의 방향을 바꾸다는 뜻.
 
-```
+```s
 ls -l > result.txt
 ```
 
@@ -32,27 +32,27 @@ ls -l > result.txt
 
   standard error는 명령어가 에러가 났을때 출력되는 에러 내용을 의미한다. standard error는 `>`나 `1>`로는 redurect가 되지 않고 `2>`로 리다이렉트 해야한다.
 
-  ```
+  ```s
   rm 없는파일 2> error.log
-  // error.log 파일에 에러 내용이 출력된다.
+  # error.log 파일에 에러 내용이 출력된다.
   ```
 
   error를 에측할 수 없는 경우 standard output을 리다이렉트 하는 코드, standard error를 리다이렉트 하는 코드를 동시에 사용할 수 있다.
 
-  ```
+  ```s
   rm 아무파일 1> result.txt 2> error.log
   ```
 
 - **standard Input**
 
-  ```
+  ```s
   cat hello.txt
   cat < hello.txtx
   ```
 
   두개의 결과는 같다. 그러나 첫번째 cat은 hello.txt를 Command Line Arguments로 받은것이고 두번째 cat은 hello.txt를 standard Input 방식으로 받은 것이다.
 
-  ```
+  ```s
   head -n1 hello.txt
   head -n1 < hello.txt
   ```
@@ -60,6 +60,6 @@ ls -l > result.txt
   `head`는 맨앞의 10줄만 출력하는 명령어고 `-n1`은 그중 첫번째 줄만 출력하라는 뜻이다. 위의 예도 결과값은 두 문장 모두 동일하다.
 
 - **standard Input과 standard Output**
-  ```
+  ```s
   head -n1 < hello.txt > result.txt
   ```
