@@ -1,5 +1,5 @@
 ---
-title: Linux_쉘(shell)과 커널(kernel)
+title: Linux_04.쉘(shell)과 커널(kernel)
 date: '2021-09-20'
 tags: ['Linux']
 draft: false

@@ -1,5 +1,5 @@
 ---
-title: Linux_Shell Script 기능
+title: Linux_07.Shell Script 기능
 date: '2021-09-21'
 tags: ['Linux']
 draft: false

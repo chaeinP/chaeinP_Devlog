@@ -1,5 +1,5 @@
 ---
-title: Linux_Branching
+title: Linux_10.Branching
 date: '2021-09-21'
 tags: ['Linux']
 draft: false
@@ -34,21 +34,21 @@ $ echo $?
 ### 비교 연산자 test
 
 > 명령어 실행결과를 true(0) 또는 false(1)로 리턴한다.
-> test <명령어> or [ 명령어 ](대괄호의 경우 내부 앞뒤 띄어쓰기 주의)
+> `test <명령어> or [ 명령어 ]`(대괄호의 경우 내부 앞뒤 띄어쓰기 주의)
 
 연산자 종류
 연산자 | 설명
 -|-
-x -eq y | x = y
-x -gt y | x > y
-x -ge y | x >= y
-x -lt y | x < y
-x -le y | x <= y
-x -ne | x != y
--e file | 파일이 존재하는지 여부
--d file | 파일이 디렉토리인지 여부
--f file | 파일이 디렉토리인지 여부
--x file | 파일이 디렉토리인지 여부
+`x -eq y` | `x = y`
+`x -gt y` | `x > y`
+`x -ge y `| `x >= y`
+`x -lt y` | `x < y`
+`x -le y `| `x <= y`
+`x -ne` |`x != y`
+`-e file` | 파일이 존재하는지 여부
+`-d file` | 파일이 디렉토리인지 여부
+`-f file` | 파일이 디렉토리인지 여부
+`-x file` | 파일이 디렉토리인지 여부
 
 ```bash
 $ x=10

@@ -1,5 +1,5 @@
 ---
-title: Linux_IO redirection
+title: Linux_03.IO redirection
 date: '2021-09-20'
 tags: ['Linux']
 draft: false

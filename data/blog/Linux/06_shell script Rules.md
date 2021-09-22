@@ -1,5 +1,5 @@
 ---
-title: Linux_Shell Script Rules
+title: Linux_06.Shell Script Rules
 date: '2021-09-21'
 tags: ['Linux']
 draft: false

@@ -1,5 +1,5 @@
 ---
-title: Linux_Shell Script 변수
+title: Linux_05.Shell Script 변수
 date: '2021-09-21'
 tags: ['Linux']
 draft: false

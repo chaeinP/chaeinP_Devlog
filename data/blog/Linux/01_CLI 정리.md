@@ -1,5 +1,5 @@
 ---
-title: Linux_대표 명령어 정리
+title: Linux_01.대표 명령어 정리
 date: '2021-09-20'
 tags: ['Linux']
 draft: false
