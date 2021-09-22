@@ -1,6 +1,6 @@
 ---
-title: Linux_03.IO redirection
-date: '2021-09-20'
+title: Linux_IO redirection
+date: '2021-09-12'
 tags: ['Linux']
 draft: false
 summary: IO redirection 이해하기

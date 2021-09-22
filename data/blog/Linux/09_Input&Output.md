@@ -1,6 +1,6 @@
 ---
-title: Linux_09.Input&Output
-date: '2021-09-21'
+title: Linux_Input&Output
+date: '2021-09-18'
 tags: ['Linux']
 draft: false
 summary: shell 스트립트에서 input과 output을 수행하는 대표적인 명령어

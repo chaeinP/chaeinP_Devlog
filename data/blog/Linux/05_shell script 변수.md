@@ -1,6 +1,6 @@
 ---
-title: Linux_05.Shell Script 변수
-date: '2021-09-21'
+title: Linux_Shell Script 변수
+date: '2021-09-14'
 tags: ['Linux']
 draft: false
 summary: 쉘 스크립트로 일반변수, 환경변수 만들기

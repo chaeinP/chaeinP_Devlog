@@ -1,6 +1,6 @@
 ---
-title: Linux_08.positional parameters
-date: '2021-09-21'
+title: Linux_positional parameters
+date: '2021-09-17'
 tags: ['Linux']
 draft: false
 summary:

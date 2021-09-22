@@ -1,6 +1,6 @@
 ---
-title: Linux_06.Shell Script Rules
-date: '2021-09-21'
+title: Linux_Shell Script Rules
+date: '2021-09-15'
 tags: ['Linux']
 draft: false
 summary: 쉘 스크립트가 가지고 있는 규칙들

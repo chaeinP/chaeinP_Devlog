@@ -1,6 +1,6 @@
 ---
-title: Linux_04.쉘(shell)과 커널(kernel)
-date: '2021-09-20'
+title: Linux_쉘(shell)과 커널(kernel)
+date: '2021-09-13'
 tags: ['Linux']
 draft: false
 summary: 쉘과 커널 기초

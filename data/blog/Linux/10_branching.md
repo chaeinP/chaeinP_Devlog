@@ -1,6 +1,6 @@
 ---
-title: Linux_10.Branching
-date: '2021-09-21'
+title: Linux_Branching
+date: '2021-09-19'
 tags: ['Linux']
 draft: false
 summary: shell에서 branching 수행하는 대표적인 명령어

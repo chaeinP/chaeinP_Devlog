@@ -1,6 +1,6 @@
 ---
-title: Linux_01.대표 명령어 정리
-date: '2021-09-20'
+title: Linux_대표 명령어 정리
+date: '2021-09-10'
 tags: ['Linux']
 draft: false
 summary: 서버 운영에 꼭 필요한 CLI

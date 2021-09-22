@@ -1,6 +1,6 @@
 ---
-title: Linux_11.looping
-date: '2021-09-22'
+title: Linux_looping
+date: '2021-09-20'
 tags: ['Linux']
 draft: false
 summary: shell에서 looping 수행하는 대표적인 명령어
