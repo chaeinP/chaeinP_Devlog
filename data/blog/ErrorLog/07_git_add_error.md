@@ -3,7 +3,7 @@ title: Error Log_git add를 했는데도 파일/폴더가 unTracked 상태일 �
 date: '2021-09-28'
 tags: ['Error_Log', 'Project']
 draft: false
-summary: utterence github OAUTH는 canonical url을 중심으로 작동한다.
+summary: 서브모듈 깃 캐시, 깃폴더 삭제하기
 ---
 
 > 이 포스트는 토이프로젝트 'signup/signin 간단 구현' 에서 발생한 에러를 기록한 것입니다.

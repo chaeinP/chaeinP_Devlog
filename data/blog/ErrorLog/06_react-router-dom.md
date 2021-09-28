@@ -3,7 +3,7 @@ title: Error Log_react-router-dom Route에 props 전달하는법
 date: '2021-09-28'
 tags: ['Error_Log', 'Project']
 draft: false
-summary: utterence github OAUTH는 canonical url을 중심으로 작동한다.
+summary: route의 render 속성 사용법
 ---
 
 > 이 포스트는 토이프로젝트 'signup/signin 간단 구현' 에서 발생한 에러를 기록한 것입니다.
