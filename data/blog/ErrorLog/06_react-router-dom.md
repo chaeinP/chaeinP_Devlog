@@ -1,7 +1,7 @@
 ---
 title: Error Log_react-router-dom Route에 props 전달하는법
 date: '2021-09-28'
-tags: ['Error_Log'],['Project']
+tags: ['Error_Log', 'Project']
 draft: false
 summary: utterence github OAUTH는 canonical url을 중심으로 작동한다.
 ---
