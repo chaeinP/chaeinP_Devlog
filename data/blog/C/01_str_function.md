@@ -8,7 +8,7 @@ summary: C언어에서 사용하는 문자열 함수 한눈에 보기
 
 > 이 포스트는 [C언어 코딩 도장](https://dojang.io)을 보고 정리한 study log 입니다.
 
-### 문자열 길이 구하기 strlen(문자열 포인터 || 문자 배열)
+## 문자열 길이 구하기 strlen(문자열 포인터 || 문자 배열)
 
 ```c++
 #include <stdio.h>
@@ -30,7 +30,7 @@ int main(void) {
 */
 ```
 
-### 문자열 비교 strcmp(문자열1, 문자열2)
+## 문자열 비교 strcmp(문자열1, 문자열2)
 
 ```c++
 #include <stdio.h>
@@ -53,7 +53,7 @@ int main()
 
 ASCII 코드표 기준 s1이 s2보다 크면 1, s1과 s2가 같으면 0, s1보다 s2가 크면 -1을 반환한다.
 
-### 문자열 복사 strcpy(대상 문자열, 원본 문자열)
+## 문자열 복사 strcpy(대상 문자열, 원본 문자열)
 
 ```c++
 #define _CRT_SECURE_NO_WARNINGS    // strcpy 보안 경고로 인한 컴파일 에러 방지
@@ -77,7 +77,7 @@ int main()
 
 문자열 포인터에 복사하기 위해선 `malloc()`으로 메모리를 할당하고 복사해줘야 에러가 나지 않는다.
 
-### 문자열 합치기 strcat(최종 문자열, 붙일 문자열)
+## 문자열 합치기 strcat(최종 문자열, 붙일 문자열)
 
 ```c++
 #define _CRT_SECURE_NO_WARNINGS    // strcat 보안 경고로 인한 컴파일 에러 방지
@@ -101,7 +101,7 @@ int main()
 
 만약 문자열 포인터에 합치고자 한다면 malloc()으로 메모리를 할당하고 strcpy()로 초기화를 한 뒤 수행한다. 이미 다른 문자열로 초기화된 포인터의 경우 읽기 전용이기 때문에 strcat 함수 사용이 불가능하다.
 
-### 문자열 서식 만들기 sprintf(배열, 서식, 값)
+## 문자열 서식 만들기 sprintf(배열, 서식, 값)
 
 ```c++
 #define _CRT_SECURE_NO_WARNINGS    // sprintf 보안 경고로 인한 컴파일 에러 방지
@@ -143,7 +143,7 @@ int main()
 
 문자열 포인터에 sprintf()를 사용하기 위해선 먼저 malloc()으로 메모리를 할당해주어야한다.
 
-### 문자 검색 strchr,strrchr(대상문자열, 검색할 문자)
+## 문자 검색 strchr,strrchr(대상문자열, 검색할 문자)
 
 `strchr`은 왼쪽부터 검색해 해당하는 문자를 발견하면 해당 문자를 포함해 문자열 끝까지 리턴한다.
 
@@ -192,7 +192,7 @@ int main()
 //ary
 ```
 
-### 문자열 검색 strstr(대상 문자열, 검색할 문자열)
+## 문자열 검색 strstr(대상 문자열, 검색할 문자열)
 
 ```c++
 #include <stdio.h>
@@ -218,7 +218,7 @@ den Diary
 */
 ```
 
-### 문자열 자르기 strtok(대상 문자열, 기준 문자)
+## 문자열 자르기 strtok(대상 문자열, 기준 문자)
 
 ❗️기준 문자는 꼭 쌍타옴표로 묶는다.
 
@@ -282,6 +282,132 @@ int main()
 */
 ```
 
-### 숫자문자열 -> 정수 atoi(문자열)
+## 숫자문자열 -> 정수 atoi(문자열)
 
-`atoi`
+`atoi`는 ASCII string to integer의 줄임말이다.
+
+```c++
+#include <stdio.h>
+#include <stdlib.h>    // atoi 함수가 선언된 헤더 파일
+
+int main()
+{
+    char *s1 = "283";   // "283"은 문자열
+    int num1;
+
+    num1 = atoi(s1);        // 문자열을 정수로 변환하여 num1에 할당
+
+    printf("%d\n", num1);   // 283
+
+    return 0;
+}
+// 283
+```
+
+문자열은 정수로 되어있어야 하며 알파벳, 특수 문자가 포함되면 해당 문자부터는 변환을 하지 않는다. 또, 처음부터 숫자가 아니면 모두 0으로 변환된다.
+
+## 문자열 -> 실수 atof(문자열)
+
+`atof`는 ASCII to float의 줄임말이다.
+
+```c++
+#include <stdio.h>
+#include <stdlib.h>    // atof 함수가 선언된 헤더 파일
+
+int main()
+{
+    char *s1 = "3.e5";   // "3.e5"는 문자열
+    float num1;
+
+    num1 = atof(s1);     // 문자열을 실수로 변환하여 num1에 할당
+
+    printf("%e %f\n", num1, num1);    // 3.000000e+05 300000.000000
+
+    return 0;
+}
+// 3.000000e+05 300000.000000
+```
+
+atof도 atoi와 마찬가지로 문자열은 실수로 되어있어야 하며 알파벳, 특수 문자가 포함되면 해당 문자부터는 변환을 하지 않는다. 또, 처음부터 숫자가 아니면 모두 0으로 변환된다.
+
+## 특정 진법으로 표현된 문자열 -> 정수 strtol(문자열, 끝포인터, 진법);
+
+```c++
+#include <stdio.h>
+#include <stdlib.h> // strtol 함수가 선언된 헤더 파일
+
+int main()
+{
+    char *s1 = "0xaf10 42 0x27C 9952"; // "0xaf10 42 0x27C 9952"는 문자열
+    int num1;
+    int num2;
+    int num3;
+    int num4;
+    char *end;    // 이전 숫자의 끝 부분을 저장하기 위한 포인터
+
+    num1 = strtol(s1, &end, 16);     // 16진법으로 표기된 문자열을 정수로 변환
+    num2 = strtol(end, &end, 10);    // 10진법으로 표기된 문자열을 정수로 변환
+    num3 = strtol(end, &end, 16);    // 16진법으로 표기된 문자열을 정수로 변환
+    num4 = strtol(end, NULL, 10);    // 10진법으로 표기된 문자열을 정수로 변환
+
+    printf("%x\n", num1);    // af10
+    printf("%d\n", num2);    // 42
+    printf("%X\n", num3);    // 27C
+    printf("%d\n", num4);    // 9952
+
+    return 0;
+}
+/*
+af10
+42
+27c
+9952
+*/
+```
+
+## 정수 -> 문자열 sprintf(문자열, "%d", 정수)
+
+정수를 문자열로 바꿀 땐 서식 지정자 `sprintf`를 사용한다.
+
+```c++
+#define _CRT_SECURE_NO_WARNINGS    // sprintf 보안 경고로 인한 컴파일 에러 방지
+#include <stdio.h>     // sprintf 함수가 선언된 헤더 파일
+
+int main()
+{
+    char s1[10], s2[10];       // 변환한 문자열을 저장할 배열
+    int num1 = 283;    // 283은 정수
+
+    sprintf(s1, "%d", num1);    // %d를 지정하여 정수를 문자열로 저장
+    printf("%s\n", s1);         // 283
+
+    sprintf(s2, "0x%x", num1);    // %x를 지정하여 정수를 16진법으로 표기된 문자열로 저장, %X로 대문자 표기하면 0x11B로 출력
+                                  // 16진수라는 것을 나타내기 위해 앞에 0x를 붙임
+    printf("%s\n", s2);           // 0x11b
+
+    return 0;
+}
+```
+
+## 실수 -> 문자열 sprintf(문자열, "%f", 실수)
+
+실수를 문자열로 바꿀 때에도 sprintf()를 사용한다.
+
+```c++
+#define _CRT_SECURE_NO_WARNINGS    // sprintf 보안 경고로 인한 컴파일 에러 방지
+#include <stdio.h>     // sprintf 함수가 선언된 헤더 파일
+
+int main()
+{
+    char s1[10], s2[10];               // 변환한 문자열을 저장할 배열
+    float num1 = 38.972340f;   // 38.972340은 실수
+
+    sprintf(s1, "%f", num1);   // %f를 지정하여 실수를 문자열로 저장
+    printf("%s\n", s1);        // 38.972340
+
+    sprintf(s2, "%e", num1);    // %e를 지정하여 실수를 지수 표기법으로 된 문자열로 저장
+    printf("%s\n", s2);         // 3.897234e+01
+
+    return 0;
+}
+```
