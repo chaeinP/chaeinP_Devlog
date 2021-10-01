@@ -6,7 +6,7 @@ draft: false
 summary: C언어에서 사용하는 문자열 함수 한눈에 보기
 ---
 
-> 이 포스트는 [C언어 코딩 도장](https://dojang.io)을 보고 정리한 study log 입니다.
+> 이 포스트는 [코딩 도장-C언어](https://dojang.io)을 보고 정리한 study log 입니다.
 
 ## 문자열 길이 구하기 strlen(문자열 포인터 || 문자 배열)
 
@@ -220,7 +220,7 @@ den Diary
 
 ## 문자열 자르기 strtok(대상 문자열, 기준 문자)
 
-❗️기준 문자는 꼭 쌍타옴표로 묶는다.
+💡기준 문자는 꼭 쌍타옴표로 묶는다.
 
 ```c++
 #define _CRT_SECURE_NO_WARNINGS    // strtok 보안 경고로 인한 컴파일 에러 방지
