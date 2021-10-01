@@ -602,3 +602,144 @@ int main()
     return 0;
 }
 ```
+
+## 구조체 안 구조체
+
+구조체는 구조체를 멤버로 가질 수 있다.
+
+```c++
+#include <stdio.h>
+
+struct Phone {    // 휴대전화 구조체
+    int areacode;                 // 국가번호
+    unsigned long long number;    // 휴대전화 번호
+};
+
+struct Person {    // 사람 구조체
+    char name[20];         // 이름
+    int age;               // 나이
+    struct Phone phone;    // 휴대전화. 구조체를 멤버로 가짐
+};
+
+int main()
+{
+    struct Person p1;
+
+    p1.phone.areacode = 82;          // 변수.멤버.멤버 순으로 접근하여 값 할당
+    p1.phone.number = 3045671234;    // 변수.멤버.멤버 순으로 접근하여 값 할당
+
+    printf("%d %llu\n", p1.phone.areacode, p1.phone.number);    // 82 3045671234
+
+    return 0;
+}
+```
+
+구조체를 정의할 땐 구조체 안에 들어갈 구조체를 먼저 선언해주어야한다. 구조체 내 구조체는 .(점)을 사용해 계층적으로 접근할 수 있다.
+
+구조체 안 구조체도 변수 선언과 동시에 초기화할 수 있다.
+
+```c++
+ struct Person p1 = { .name = "Andrew", .age = 25, { .areacode = 82, .number = 3045671234 } };
+
+```
+
+## 구조체 안 구조체 멤버에 메모리 할당
+
+- 구조체는 포인터, 구조체 안 구조체는 변수인 경우
+
+```c++
+#include <stdio.h>
+#include <stdlib.h>    // malloc, free 함수가 선언된 헤더 파일
+
+struct Phone {    // 휴대전화 구조체
+    int areacode;                 // 국가번호
+    unsigned long long number;    // 휴대전화 번호
+};
+
+struct Person {    // 사람 구조체
+    char name[20];         // 이름
+    int age;               // 나이
+    struct Phone phone;    // 휴대전화. 구조체를 멤버로 가짐
+};
+
+int main()
+{
+    struct Person *p1 = malloc(sizeof(struct Person));    // 사람 구조체 포인터에 메모리 할당
+
+    p1->phone.areacode = 82;          // 포인터->멤버.멤버 순으로 접근하여 값 할당
+    p1->phone.number = 3045671234;    // 포인터->멤버.멤버 순으로 접근하여 값 할당
+
+    printf("%d %llu\n", p1->phone.areacode, p1->phone.number);    // 82 3045671234
+
+    free(p1);    // 동적 메모리 해제
+
+    return 0;
+}
+```
+
+- 구조체와 구조체안 구조체 모두 포인터인 경우
+
+```c++
+#include <stdio.h>
+#include <stdlib.h>    // malloc, free 함수가 선언된 헤더 파일
+
+struct Phone {    // 휴대전화 구조체
+    int areacode;                 // 국가번호
+    unsigned long long number;    // 휴대전화 번호
+};
+
+struct Person {    // 사람 구조체
+    char name[20];          // 이름
+    int age;                // 나이
+    struct Phone *phone;    // 휴대전화. 구조체 포인터 선언
+};
+
+int main()
+{
+    struct Person *p1 = malloc(sizeof(struct Person));    // 바깥 구조체의 포인터에 메모리 할당
+    p1->phone = malloc(sizeof(struct Phone));             // 멤버 포인터에 메모리 할당
+
+    p1->phone->areacode = 82;          // 포인터->포인터->멤버 순으로 접근하여 값 할당
+    p1->phone->number = 3045671234;    // 포인터->포인터->멤버 순으로 접근하여 값 할당
+
+    printf("%d %llu\n", p1->phone->areacode, p1->phone->number);    // 82 3045671234
+
+    free(p1->phone);    // 구조체 멤버의 메모리를 먼저 해제
+    free(p1);           // 구조체 메모리 해제
+
+    return 0;
+}
+```
+
+## 익명 구조체와 익명 공용체 활용
+
+```c++
+#include <stdio.h>
+
+struct Vector3 { // 3차원 벡터 좌표
+    union {          // 익명 공용체
+        struct {         // 익명 구조체
+            float x;         // x 좌표
+            float y;         // y 좌표
+            float z;         // z 좌표
+        };
+        float v[3];      // 좌표를 배열로 저장
+    };
+};
+
+int main()
+{
+    struct Vector3 pos;
+
+    for (int i = 0; i < 3; i++)    // 3번 반복
+    {
+        pos.v[i] = 1.0f;           // v는 배열이므로 인덱스로 접근 할 수 있음
+    }
+
+    printf("%f %f %f\n", pos.x, pos.y, pos.z);    // 1.000000 1.000000 1.000000: x, y, z로 접근
+
+    return 0;
+}
+```
+
+union안 struct는 float v[3]와 메모리를 공유한다. struct 안 float x, y, z는 변수 3개이고 float v[3]은 배열의 요소가 3개다. 자료형도 같고 개수도 같기 떄문에 결국 같은 공간을 차지한다. v는 배열이기 때문에 인덱스로 접근할 수 있는데 공용체에 값을 넣었으므로 x,y,z멤버로도 해당 값에 접근할 수 있다. **이처럼 익명 구조체와 익명 공용체를 사용하면 같은 값이지만 이름과 형태를 달리하여 접근할 수 있다.**
