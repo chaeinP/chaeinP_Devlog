@@ -6,7 +6,7 @@ draft: false
 summary: C언어에서 함수 사용하기
 ---
 
-> 이 포스트는 [코딩 도장-C언어](https://dojang.io)을 보고 정리한 study log 입니다. 보다 자세한 내용은 링크에서 확인하실 수 있습니다.
+> 이 포스트는 [코딩 도장-C언어](https://dojang.io)을 보고 정리한 study log 입니다. 보다 자세한 내용은 링크에서 직접 확인하시기를 권합니다.
 
 ## 함수
 
@@ -606,3 +606,356 @@ int main()
     return 0;
 }
 ```
+
+## 배열 매개변수
+
+함수에서 배열을 매개변수로 사용하려면 ()안에서 매개변수 이름 뒤에 []를 붙이거나 매개변수를 포인터로 저장한다.
+
+```c++
+
+#include <stdio.h>
+// 배열로 선언
+void printArray(int arr[], int count)    // 배열의 포인터와 요소의 개수를 받음
+{
+    for (int i = 0; i < count; i++)
+    {
+        printf("%d ", arr[i]);
+    }
+    printf("\n");
+}
+
+int main()
+{
+    int numArr[10] = { 1, 2, 3, 4, 5, 6, 7, 8, 9, 10 };
+    printArray(numArr, sizeof(numArr) / sizeof(int));    // 배열과 요소의 개수를 넣음
+    return 0;
+}
+
+// 포인터로 선언
+void printArray(int *arr, int count)    // 매개변수를 포인터로 지정하여 배열을 받음
+{
+    for (int i = 0; i < count; i++)
+    {
+        printf("%d ", arr[i]);
+    }
+    printf("\n");
+}
+
+int main()
+{
+    int numArr[10] = { 1, 2, 3, 4, 5, 6, 7, 8, 9, 10 };
+    printArray(numArr, sizeof(numArr) / sizeof(int));    // 배열과 요소의 개수를 넣음
+    return 0;
+}
+```
+
+매개변수를 arr[]와 같이 지정했다면 arr은 포인터이다. 따라서 함수 안에서 매개변수로 받은 배열의 요소를 변경하면 함수 바깥에 있는 배열의 요소가 바뀌게 된다.
+
+> 💡 함수 배열 매개변수의 최소 개수 지정하기
+
+    함수의 배열 매개변수에 static과 숫자를 사용하면 요소의 최소개수를 지정할 수 있다.
+
+    ```c++
+    #include <stdio.h>
+    void printArray(int arr[static 5], int count)    // 배열 요소의 최소 개수를 5개로 지정
+    {
+        for (int i = 0; i < count; i++)
+        {
+            printf("%d ", arr[i]);
+        }
+
+        printf("\n");
+    }
+    ```
+
+## 2차원 배열 매개변수
+
+함수에서 2차원 배열을 매개변수로 사용하려면 ()안에서 매개변수 이름 뒤에 [][가로크기]를 지정해주어야 한다. (첫번째 대괄호 안에 세로크기를 지정하더라도 무시된다.)
+
+```c++
+#include <stdio.h>
+
+//배열지정                    ↓ 배열의 가로 크기 지정
+void print2DArray(int arr[][5], int col, int row)    // 2차원 배열의 포인터와 가로, 세로 크기를 받음
+{
+    for (int i = 0; i < row; i++)
+    {
+        for (int j = 0; j < col; j++)
+        {
+            printf("%d ", arr[i][j]);
+        }
+        printf("\n");
+    }
+}
+
+//배열 포인터 지정
+int main()
+{
+    int numArr[2][5] = {
+        { 1, 2, 3, 4, 5 },
+        { 6, 7, 8, 9, 10 }
+    };
+    int col = sizeof(numArr[0]) / sizeof(int);      // 5: 2차원 배열의 가로 크기를 구할 때는
+                                                    // 가로 한 줄을 요소의 크기로 나눠줌
+    int row = sizeof(numArr) / sizeof(numArr[0]);   // 2: 2차원 배열의 세로 크기를 구할 때는
+                                       // 배열이 차지하는 공간을 가로 한 줄의 크기로 나눠줌
+    print2DArray(numArr, col, row);    // 2차원 배열과 가로, 세로 크기를 넣음
+    return 0;
+}
+```
+
+❗️배열 매개변수와 포인터 매개변수의 차이점
+
+    ```c++
+    void hello(char s1[]) { ... }    // 배열 매개변수
+    void hello(char *s1) { ... }     // 포인터 매개변수
+    ```
+    배열은 수식에서 사용될 떄 포인터로 변환되기 때문에 컴파일러는 두 매개변수 모두 포인터로 인식한다. 보통 함수 바깥에서 인수로 받은 값이 배열일 때는 배열로 지정해주고, 포인터일 떄는 포인터로 지정해주는 식으로 사용한다.
+
+## 구조체 매개변수
+
+함수에 전달해야 할 매개변수가 너무 많은 경우 구조체를 사용하면 간단해진다.
+
+```c++
+#define _CRT_SECURE_NO_WARNINGS   // strcpy 보안 경고로 인한 컴파일 에러 방지
+#include <stdio.h>
+#include <string.h>               // strcpy 함수가 선언된 헤더 파일
+
+struct Person {
+    char name[20];
+    int age;
+    char address[100];
+};
+
+void printPerson(struct Person p)    // 반환값 없음, 구조체 매개변수 한 개 지정
+{
+    // 구조체 매개변수 멤버의 값 출력
+    printf("이름: %s\n", p.name);       // 이름: 홍길동
+    printf("나이: %d\n", p.age);        // 나이: 30
+    printf("주소: %s\n", p.address);    // 주소: 서울시 용산구 한남동
+}
+
+int main()
+{
+    struct Person p1;
+    strcpy(p1.name, "홍길동");
+    p1.age = 30;
+    strcpy(p1.address, "서울시 용산구 한남동");
+    printPerson(p1);    // 함수를 호출할 때 구조체 변수 전달, 멤버가 복사됨
+
+    return 0;
+}
+```
+
+함수를 호출할 때 구조체 변수를 사용하면 구조체 변수의 모든 멤버가 매개변수로 복사된다. 이로 인해 메모리 성능이 좋지 않아진다. 따라서 구조체 매개변수를 사용할 때는 포인터를 활용하는 것이 좋다.
+
+```c++
+#define _CRT_SECURE_NO_WARNINGS    // strcpy 보안 경고로 인한 컴파일 에러 방지
+#include <stdio.h>
+#include <string.h>    // strcpy 함수가 선언된 헤더 파일
+
+struct Person {
+    char name[20];
+    int age;
+    char address[100];
+};
+
+void setPerson(struct Person *p)    // 반환값 없음, 구조체 포인터 매개변수 한 개 지정
+{
+    // 매개변수로 받은 포인터에서 구조체 멤버의 값 변경
+    strcpy(p->name, "고길동");
+    p->age = 40;
+    strcpy(p->address, "서울시 서초구 반포동");
+}
+
+int main()
+{
+    struct Person p1;
+
+    strcpy(p1.name, "홍길동");
+    p1.age = 30;
+    strcpy(p1.address, "서울시 용산구 한남동");
+
+    setPerson(&p1);    // 함수를 호출할 때 구조체 변수의 메모리 주소를 전달
+
+    // setPerson에서 변경한 값이 출력됨
+    printf("이름: %s\n", p1.name);       // 이름: 고길동
+    printf("나이: %d\n", p1.age);        // 나이: 40
+    printf("주소: %s\n", p1.address);    // 주소: 서울시 서초구 반포동
+
+    return 0;
+}
+```
+
+## 공용체와 열거형 매개변수
+
+```c++
+#include <stdio.h>
+
+union Box {
+    short candy;
+    float snack;
+    char doll[8];
+};
+
+enum BOX_TYPE {
+    BOX_PAPER = 0,
+    BOX_WOOD,
+    BOX_PLASTIC
+};
+
+void printBox(union Box box)    // 반환값 없음, 공용체 매개변수 한 개 지정
+{
+    printf("%d\n", box.candy);
+}
+
+void printBoxType(enum BOX_TYPE boxType)   // 반환값 없음, 열거형 매개변수 한 개 지정
+{
+    printf("%d\n", boxType);
+}
+
+int main()
+{
+    union Box box;
+    enum BOX_TYPE boxType;
+
+    box.candy = 10;
+    boxType = BOX_PLASTIC;
+
+    printBox(box);            // 10: 함수를 호출할 때 공용체 변수 전달
+    printBoxType(boxType);    //  2: 함수를 호출할 때 열거형 값 전달
+
+    return 0;
+}
+```
+
+## 가변인자
+
+printf나 scanf처런 매개변수의 개수가 정해지지 않은 함수들이 있다. 이렇게 함수에 들어가는 인수의 개수가 달라지는 것을 가변 인자라고 한다. 가변인자를 정의할 때는 고정 매개변수가 한 개 이상 있어야 하며 고정 매개변수 뒤에 `...`을 붙여 매개변수의 개수가 정해지지 않았다는 표시를 해준다.
+
+```c++
+#include <stdio.h>
+
+// args는 고정 매개변수
+void printNumbers(int args, ...)
+{
+    printf("%d ", args); // 1 2 3 4
+}
+
+int main()
+{
+    printNumbers(1, 10);
+    printNumbers(2, 10, 20);
+    printNumbers(3, 10, 20, 30);
+    printNumbers(4, 10, 20, 30, 40);
+
+    return 0;
+}
+```
+
+위의 경우 첫번째 인자는 args에 나머지 인자는 ...에 들어간다. ...에 들어간 인자들을 사용하려면 추가적인 매크로를 사용해야한다.
+
+```c++
+#include <stdio.h>
+#include <stdarg.h>    // va_list, va_start, va_arg, va_end가 정의된 헤더 파일
+
+void printNumbers(int args, ...)    // 가변 인자의 개수를 받음, ...로 가변 인자 설정
+{
+    va_list ap;    // 가변 인자 목록 포인터
+    va_start(ap, args);    // 가변 인자 목록 포인터 설정
+    for (int i = 0; i < args; i++)    // 가변 인자 개수만큼 반복
+    {
+        int num = va_arg(ap, int);    // int 크기만큼 가변 인자 목록 포인터에서 값을 가져옴
+                                      // ap를 int 크기만큼 순방향으로 이동
+        printf("%d ", num);           // 가변 인자 값 출력
+    }
+    va_end(ap);    // 가변 인자 목록 포인터를 NULL로 초기화
+    printf("\n");    // 줄바꿈
+}
+
+int main()
+{
+    printNumbers(1, 10);                // 인수 개수 1개
+    printNumbers(2, 10, 20);            // 인수 개수 2개
+    printNumbers(3, 10, 20, 30);        // 인수 개수 3개
+    printNumbers(4, 10, 20, 30, 40);    // 인수 개수 4개
+
+    return 0;
+}
+```
+
+`stdrag.h`에 정의된 가변 인자 처리 매크로는 다음과 같다.
+
+- `va_list` : 가변인자 목록. 가변 인자의 메모리 주소를 저장하는 포인터
+- `va_start` : 가변 인자를 가져올 수 있도록 포인터를 설정
+- `va_arg` : 가변 인자 포인터에서 특정 자료형 크기만큼 값을 가져온다.
+- `va_end` : 가변 인자 처리가 끝났을 때 포인터를 NULL로 초기화.
+
+## 자료형이 다른 가변인자 함수
+
+자료형이 다른 가변인자의 경우 switch와 함께 사용한다.
+
+가변인자를 처리할 때 사용할 각 자료형의 약칭
+
+- 정수(int): 'i'
+- 실수(double): 'd'
+- 문자(char): 'c'
+- 문자열(char \*): 's'
+
+```c++
+#include <stdio.h>
+#include <stdarg.h>    // va_list, va_start, va_arg, va_end가 정의된 헤더 파일
+
+void printValues(char *types, ...)    // 가변 인자의 자료형을 받음, ...로 가변 인자 설정
+{
+    va_list ap;    // 가변 인자 목록
+    int i = 0;
+
+    va_start(ap, types);        // types 문자열에서 문자 개수를 구해서 가변 인자 포인터 설정
+    while (types[i] != '\0')    // 가변 인자 자료형이 없을 때까지 반복
+    {
+        switch (types[i])       // 가변 인자 자료형으로 분기
+        {
+        case 'i':                                // int형일 때
+            printf("%d ", va_arg(ap, int));      // int 크기만큼 값을 가져옴
+                                                 // ap를 int 크기만큼 순방향으로 이동
+            break;
+        case 'd':                                // double형일 때
+            printf("%f ", va_arg(ap, double));   // double 크기만큼 값을 가져옴
+                                                 // ap를 double 크기만큼 순방향으로 이동
+            break;
+        case 'c':                                // char형 문자일 때
+            printf("%c ", va_arg(ap, char));     // char 크기만큼 값을 가져옴
+                                                 // ap를 char 크기만큼 순방향으로 이동
+            break;
+        case 's':                                // char *형 문자열일 때
+            printf("%s ", va_arg(ap, char *));   // char * 크기만큼 값을 가져옴
+                                                 // ap를 char * 크기만큼 순방향으로 이동
+            break;
+        default:
+            break;
+        }
+        i++;
+    }
+    va_end(ap);    // 가변 인자 포인터를 NULL로 초기화
+    printf("\n");    // 줄바꿈
+}
+
+int main()
+{
+    printValues("i", 10);                                       // 정수
+    printValues("ci", 'a', 10);                                 // 문자, 정수
+    printValues("dci", 1.234567, 'a', 10);                      // 실수, 문자, 정수
+    printValues("sicd", "Hello, world!", 10, 'a', 1.234567);    // 문자열, 정수, 문자, 실수
+
+    return 0;
+}
+```
+
+💡 GCC va_arg 와 visual studio에서 va_arg의 차이
+
+> Visual Studio에서는 va_arg(ap, char) 처럼 char을 사용할 수 있지만 GCC에서는 가변인자로 받은 값의 자료형이 int보다 작다면 int로, float라면 double로 지정해야한다. GCC 쪽이 C언어 표준이다.
+
+- char, bool -> int
+- short -> int
+- float -> double
