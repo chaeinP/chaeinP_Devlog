@@ -9,6 +9,4 @@ email: address@yoursite.com
 github: https://github.com/chaeinP
 ---
 
-상상하는 모든 것을 만들 수 있는 사람...
-
-(이 될 수 있겠죠?)
+상상하는 모든 것을 만들 수 있는 사람이 되고 싶습니다.
