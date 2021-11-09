@@ -51,7 +51,7 @@ int isalnum(int c);
 #include <ctype.h>
 
 // prototype
-int isalnum(int c);
+int isascii(int c);
 ```
 
 ## isprint
