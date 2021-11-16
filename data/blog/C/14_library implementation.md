@@ -93,7 +93,7 @@ summary: 왜?의 향연...
 
 ## memcpy
 
-- memcpy와 memove의 차이
+- memcpy와 memmove의 차이
 
   두 함수 모두 주어진 크기만큼 메모리를 복사한다는 공통점이 있으나 dst와 src가 overlap되는 부분이 있다면 서로 다르게 동작한다.
 
