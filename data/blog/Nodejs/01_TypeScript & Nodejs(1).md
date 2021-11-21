@@ -25,7 +25,6 @@ npm install --save-dev @types/node
 ```
 
 - import문은 typescript가 읽을 수 있기 때문에 따로 type설치를 진행하지 않아도 된다.
-- typescript로 모듈을 불러올때는 import문만 사용한다. `const app = require('express')`는 작동하지 않는다는 뜻. import 구문을 사용한 ts파일을 nodejs 환경에서 컴파일해보면 다른 문법으로 변경돼있는 것을 볼 수 있다.
 - typescript에서는 외부 모듈을 불러오면 불러오는 모듈(ex. express)의 타입을 알지 못하기 때문에 선언파일을 찾을 수 없다는 에러가 발생한다. 이때 해결 방법은 두가지다.
 
   - `@types/express` 설치
@@ -96,8 +95,6 @@ app.use(bodyParser.urlencoded({ extended: true }))
 app.use(express.json())
 app.use(express.urlencoded({ extended: true }))
 ```
-
-> 42 checkin code에서는 urlencoded() 설정을 따로 안해주었는데 이 설정은 추가 옵션인건지 반드시 설정해주어야하는건지 아직 모르겠음. 근데 안해도 작동은 한다.
 
 ### req.body typecasting
 
