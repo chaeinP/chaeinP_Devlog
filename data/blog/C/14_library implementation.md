@@ -1,7 +1,7 @@
 ---
 title: C_주요 라이브러리 함수 구현 시 궁금한 점 정리
 date: '2021-11-14'
-tags: ['C']
+tags: ['C', '42Seoul']
 draft: false
 summary: 왜?의 향연...
 ---
@@ -16,7 +16,7 @@ summary: 왜?의 향연...
 
   - int / unsigned int와 다른 점은?
 
-    **int와 unsigned int는 환경에 따라 그 크기가 가변적이다.** int와 unisgned int는 4byte(32비트)의 메모리를 갖는다고 알려져있지만 이는 32비트 환경을 기준으로 이야기했을 때를 의미한다. int와 unsigned int는 환경에 따라 그 크기가 달라질 수 있다. **그에 반해 size_t의 경우는 항상 4byte로 그 크기가 고정되어있다.** 따라서 어떤 환경에서 사용하든 4byte로 고정되어있기 때문에 int와 unsigned int를 사용했을 때보다 더 안정적인 코드를 작성할 수 있다.
+    int와 unisgned int는 4byte(32비트)의 메모리를 갖는다고 알려져있지만 이는 32비트 환경을 기준으로 이야기했을 때를 의미한다. int와 unsigned int는 환경에 따라 그 크기가 달라질 수 있다. size_t 는, 32비트 운영체제에서는 "부호없는 32비트 정수"이고, 64비트 운영체제에서는 "부호없는 64비트 정수"다. 그러나 "unsigned int" 또는 "int"는, 64비트 OS라고 해서 꼭 64비트 정수는 아니다. 이것이 size_t형과 "unsigned int"형의 차이다. 64비트 환경에서 size_t의 size는 8로 나왔지만 이를 unsigned int로 타입캐스팅 했을 때 size는 7로 반환됐다. unsigned int는 환경에 따라 어느 정도의 메모리를 가지는지 예측 불가능하다는 의미다. 반면 size_t는 운영체제에 따라 비례하여 고정된 값을 갖는다.
 
 - strlen의 반환값은 왜 size_t자료형일까?
 
@@ -25,7 +25,7 @@ summary: 왜?의 향연...
 참고
 
 - [Further insights into size_t](https://www.embedded.com/further-insights-into-size_t/)
-
+- [C언어 size_t 형의 의미; unsigned int와 차이점, 차이](http://mwultong.blogspot.com/2007/06/c-sizet-unsigned-int.html)
 - [size_t 타입의 이해](https://seoulforest.tistory.com/entry/sizet-%ED%83%80%EC%9E%85%EC%9D%98-%EC%9D%B4%ED%95%B4)
 
 ## memset
