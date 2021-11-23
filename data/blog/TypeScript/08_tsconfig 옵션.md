@@ -1,6 +1,6 @@
 ---
 title: TypeScript_tsconfig 옵션 정리
-date: '2021-11-21'
+date: '2021-11-23'
 tags: ['TypeScript']
 draft: false
 summary: 타입스크립트 컴파일 옵션 모음
