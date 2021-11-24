@@ -1,7 +1,7 @@
 ---
 title: C_주요 라이브러리 함수
 date: '2021-11-08'
-tags: ['C']
+tags: ['C', '42Seoul']
 draft: false
 summary: 주요 라이브러리 함수 약 30개를 분석해보자
 ---
