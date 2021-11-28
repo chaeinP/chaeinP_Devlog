@@ -1,6 +1,6 @@
 ---
 title: Nodejs_좋은 로그란 무엇일까?
-date: '2021-11-16'
+date: '2021-11-28'
 tags: ['NODEJS', 'TYPESCRIPT']
 draft: false
 summary: 백엔드에서 중요한 로그 기능 구현하기(1)
