@@ -98,7 +98,7 @@ import { Model } from 'sequelize'
 export class Users
   extends Model<usersAttributes, usersCreationAttributes>
   implements usersAttributes {
-  public readonly id!: number
+  public readonly id!: number //strict모드에선 !를 붙여주어야한다. 만약 null이 허용되는 경우 number | null처럼 union타입으로 표현해야한다.
   public username!: string
   public image!: string
   public userStatus!: string
