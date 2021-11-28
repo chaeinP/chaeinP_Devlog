@@ -110,24 +110,9 @@ path는 node에서 지원하는 내장 모듈이다. \_\_dirname은 형재 파�
 
 ## ejs tags
 
-ejs는 동적 데이터 렌더를 위해 tag라는 기능을 사용한다. 사용할 수 있는 tags들은 다음과 같다.
+ejs는 동적 데이터 렌더를 위해 tag라는 기능을 사용한다. 사용할 수 있는 tags들은 [ejs 공식문서](https://ejs.co/)에서 확인할 수 있다.
 
-[ejs 공식문서](https://ejs.co/)
-Snippet→ | Alternate | Output
--|-|-
-ejs→| <%| <% %> - No output tag
-ejsout→ |<%=| <%= %> - Outputs HTML value
-ejsesc→ |<%-| <%- %> - Outputs unescaped
-ejscom→ |<%#| <%# %> - Comment tag
-ejslit→ |<%%| <%% %> - Outputs Literal <%
-ejsinc→ |<%| include statement
-ejsfor→ |<% |for Javascript Loop
-ejseach→| <%| forEach Javascript Loop
-ejsif→| <%| if Statement with condition
-ejselif→| <%| else if Statement - Middle section only. Assumes you have already written the first if statement.
-ejselse→| <%| else Statement - Middle section only. Assumes you have already written the first if statement.
-
-- <%= %>
+- `<%= %>`
   이 태그는 자바스크립트 문법으로 데이터를 추가할 때 사용할 수 있다.
 
 ```html
