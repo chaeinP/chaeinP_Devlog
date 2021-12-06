@@ -204,9 +204,9 @@ ejs 템플릿 안에서 조건문을 작성할 때에느 `<% %>`를 사용한다
     <h1>Your random number is <%= num %></h1>
     <% if(num % 2 == 0) {%>
     <h2>That is an even number!</h2>
-    <% } else { %>
+    <%} else {%>
     <h2>That is an odd number!</h2>
-    <% } %>
+    <%} %>
     <!--삼항 연산자-->
     <h3>That is : <%= num % 2 == 0 ? 'EVEN' : 'ODD'%></h3>
   </body>
