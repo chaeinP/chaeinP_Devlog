@@ -56,7 +56,7 @@ app.get(
 
 ### redirect url route 설정
 
-위에 설정한 /auth/google로 들어가면 oauth로 연결된다 oauth는 인증이 완료되면 입력한 redirect url로 요청을 넘기는데 이때 뒤에 code=''라는 쿼리 스트링이 담긴다. 이 쿼리스트링이 google oauth를 통해 넘어온 유저의 정보를 담고 있다. 이제 redirect url로 들어올 route를 설정해주면 된다.
+위에 설정한 /auth/google로 들어가면 oauth로 연결된다 oauth는 인증이 완료되면 입력한 redirect url로 요청을 넘기는데 이때 뒤에 code=''라는 쿼리 스트링이 담긴다. 이 코드는 accessToken을 발급받기 위한 authorization code 이다. 이제 redirect url로 들어올 route를 설정해주면 된다.
 
 ```js
 //app.js
