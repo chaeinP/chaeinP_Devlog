@@ -2,7 +2,7 @@
 title: Nodejs_express에 ejs템플릿 엔진 적용하기
 date: '2021-11-28'
 tags: ['NODEJS']
-draft: false
+draft: true
 summary: 템플릿 엔진으로 SSR 동적 HTML 구성하기
 ---
 
@@ -191,7 +191,7 @@ random으로 계산된 num을 ejs파일 안에서 rand라는 변수로 사용하
 
 ejs 템플릿 안에서 조건문을 작성할 때에느 `<% %>`를 사용한다.
 
-```html
+```
 <!DOCTYPE html>
 <html lang="en">
   <head>
