@@ -1,10 +1,13 @@
 ---
-title: 1일1Try_tsoa + swagger API 문서 자동화
+title: Node.js_tsoa + swagger API 문서 자동화
 date: '2021-12-16'
-tags: ['1일1Try', 'NODEJS']
+tags: ['Munetic', 'NODEJS', 'TypeScript']
 draft: false
-summary: Nodejs+Typescript환경에 tsoa+swagger를 사용해 자동으로 API 명세 만들기
+summary: Munetic Project_학습 기록(1) Nodejs+Typescript환경에 tsoa+swagger를 사용해 자동으로 API 명세 만들기
 ---
+
+> [Munetic github](https://github.com/innovationacademy-kr/slabs-munetic)
+> 이 글은 Munetic 기업 협력 프로젝트 1팀의 프로젝트 기간 동안 정리한 학습 기록 및 회고 글입니다.
 
 현재 기업협업 프로젝트 진행 중에 있다. 이 프로젝트는 총 3팀이 순차적으로 프로젝트를 진행한다. 나는 가장 첫번째 팀에 속해 기획부터 개발환경 세팅, 기본적인 db구축과 UI컴포넌트 작업을 수행하고있다. 이 프로젝트에서 가장 중요한 이슈는 인수인계이다. 우리의 코드를 기반으로 그 다음팀이 개발을 진행해야 하기 때문에 개발 뿐만 아니라 문서화 또한 가볍게 여길 문제가 아니었다.
 

@@ -2,7 +2,7 @@
 title: Nodejs_node + TypeScript + sequelize
 date: '2021-11-27'
 tags: ['NODEJS', 'TYPESCRIPT']
-draft: false
+draft: true
 summary: node + TypeScript 환경에 sequelize 연결하기
 ---
 
