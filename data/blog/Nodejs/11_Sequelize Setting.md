@@ -1,6 +1,6 @@
 ---
 title: Node.js_TypeScript 환경에 Sequelize 세팅하기
-date: '2021-01-11'
+date: '2022-01-11'
 tags: ['Munetic', 'NODEJS', 'TypeScript']
 draft: false
 summary: Munetic Project_학습 기록(2)
