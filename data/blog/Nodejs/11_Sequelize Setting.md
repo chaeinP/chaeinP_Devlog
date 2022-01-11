@@ -1,13 +1,15 @@
 ---
 title: Node.js_TypeScript 환경에 Sequelize 세팅하기
-date: '2021-12-16'
+date: '2021-01-11'
 tags: ['Munetic', 'NODEJS', 'TypeScript']
 draft: false
 summary: Munetic Project_학습 기록(2)
 ---
 
 > [Munetic github](https://github.com/innovationacademy-kr/slabs-munetic)
-> 이 글은 Munetic 기업 협력 프로젝트 1팀의 프로젝트 기간이 끝난 뒤 정리한 학습 기록 및 회고 글입니다. 원글은 해당 깃레포 위키에서 확인할 수 있습니다. 다음의 글에 오류나 잘못된 정보가 있다면 알려주시고 정정 부탁드립니다.
+
+> 이 글은 Munetic 기업 협력 프로젝트 1팀의 프로젝트 기간이 끝난 뒤 **인수인계를 위해 정리한 학습 기록 및 회고 글** 입니다.
+> 원글은 해당 깃레포 위키에서 확인할 수 있습니다. 다음의 글에 오류나 잘못된 정보가 있다면 알려주시고 정정 부탁드립니다.
 
 ## 💡ORM 이란?
 
@@ -55,12 +57,18 @@ docker pull mariadb
 docker run --name mariadb -d -p 3306:3306 --restart=always -e MYSQL_ROOT_PASSWORD=root mariadb
 ```
 
-`--name` : 실행시킬 컨테이너 이름을 지어줍니다. <br>
-`-d` : 백그라운드 실행을 의미합니다. <br>
-`-p host-port:container-port` : DB를 연결할 host-port와 continer-port를 설정합니다. host-port는 로컬 host에서 연결하는 port, container-port는 컨테이너 내부에서 사용하는 port입니다. 로컬이나 컨테이너에서 이미 점유하고 있는 포트를 사용하면 충돌이나기 때문에 비어있는 포트 번호를 넣어주어야 합니다. <br>
-`--restart=always` : 도커가 실행되는 경우 항상 컨테이너를 실행하는 옵션 (선택) <br>
-`e MYSQL_ROOT_PASSWORD=비밀번호` : mariadb에 root권한으로 접속할 때 사용할 비밀번호를 생성합니다.<br>
-`mariadb` : 컨테이너 생성에 사용할 이미지 이름 <br>
+`--name` : 실행시킬 컨테이너 이름을 지어줍니다.
+
+`-d` : 백그라운드 실행을 의미합니다.
+
+`-p host-port:container-port` : DB를 연결할 host-port와 continer-port를 설정합니다. host-port는 로컬 host에서 연결하는 port,
+container-port는 컨테이너 내부에서 사용하는 port입니다. 로컬이나 컨테이너에서 이미 점유하고 있는 포트를 사용하면 충돌이나기 때문에 비어있는 포트 번호를 넣어주어야 합니다.
+
+`--restart=always` : 도커가 실행되는 경우 항상 컨테이너를 실행하는 옵션 (선택)
+
+`e MYSQL_ROOT_PASSWORD=비밀번호` : mariadb에 root권한으로 접속할 때 사용할 비밀번호를 생성합니다.
+
+`mariadb` : 컨테이너 생성에 사용할 이미지 이름
 
 - 도커 mariadb에 접속
 
@@ -82,7 +90,7 @@ create database 데이터 베이스 이름;
 
 다음의 설명은 로컬 개발 시를 기준으로 합니다. 도커 컴포즈로 실행할 때에는 munetic 루트에 있는 .env_template 파일을 참고해 .env 파일을 생성해 사용합니다. 도커 컴포즈가 프로젝트를 빌드하고 컨테이너를 실행시키는 과정에서 환경변수를 부여하도록 설계되었습니다.
 
-- munetic_express .env 파일 생성<br>
+- munetic_express .env 파일 생성
   munetic_express 사용중인 환경변수는 다음과 같습니다. 상위 5개 요소가 DB와 관련된 환경 변수 입니다.
 
 ```sh
