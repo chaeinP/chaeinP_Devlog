@@ -17,8 +17,8 @@ summary: Munetic Project_학습 기록(8)
 
 ### 0️⃣ Inputs/CustomInput
 
-<img width="217" alt="스크린샷 2022-01-12 오후 7 30 55" src="https://user-images.githubusercontent.com/50102773/149124064-c1c8b9c2-9284-41da-bee6-c9dda235644f.png">
-<img width="216" alt="스크린샷 2022-01-12 오후 7 35 50" src="https://user-images.githubusercontent.com/50102773/149124277-74901448-8fcb-452c-b6fd-65580fdc3fa1.png">
+![](https://user-images.githubusercontent.com/50102773/149124064-c1c8b9c2-9284-41da-bee6-c9dda235644f.png)
+![](https://user-images.githubusercontent.com/50102773/149124277-74901448-8fcb-452c-b6fd-65580fdc3fa1.png)
 
 ```ts
 import CustomInput from '../'
@@ -41,7 +41,7 @@ const [email, setEmail] = useState('')
 
 ### 1️⃣ Inputs/CustomPasswordInputs
 
-<img width="183" alt="스크린샷 2022-01-12 오후 7 36 57" src="https://user-images.githubusercontent.com/50102773/149124477-5fae1f52-a398-46c6-a9c3-6d7d049bf1af.png">
+![](https://user-images.githubusercontent.com/50102773/149124477-5fae1f52-a398-46c6-a9c3-6d7d049bf1af.png)
 
 ```ts
 import CustomPasswordInput from '../'
@@ -60,7 +60,7 @@ const [showPassword, setShowPassword] = useState(false)
 
 ### 2️⃣ Inputs/CustomSelect
 
-<img width="179" alt="스크린샷 2022-01-12 오후 7 37 25" src="https://user-images.githubusercontent.com/50102773/149124562-85ac42f1-3118-40c9-ab4c-bfc830d85c15.png">
+![](https://user-images.githubusercontent.com/50102773/149124562-85ac42f1-3118-40c9-ab4c-bfc830d85c15.png)
 
 ```ts
 import CustomPasswordInput from '../'
@@ -80,8 +80,7 @@ const [auth, setAuth] = useState('Admin')
 ## 💡 Table
 
 유저, 어드민유저, 레슨 페이지에서 재사용되고 있는 Table 사용법입니다. 페이지 별 필요한 테이블 컬럼이 다르기 때문에 페이지 주소에 따라 헤드와 로우 컬럼값을 교체해 사용하고 있습니다.
-
-<img width="600" alt="스크린샷 2022-01-12 오후 8 16 47" src="https://user-images.githubusercontent.com/50102773/149130412-3b0f9a5d-363b-4c50-a95f-c2eeb78de808.png">
+![sdfsd](https://user-images.githubusercontent.com/50102773/149130412-3b0f9a5d-363b-4c50-a95f-c2eeb78de808.png)
 
 ### 0️⃣ Table/MUITable.ts
 
@@ -251,7 +250,7 @@ export const userHeadCells: readonly UserHeadCell[] = [
 
 ![스크린샷 2022-01-13 오전 12 03 28](https://user-images.githubusercontent.com/50102773/149165718-f44909e3-d903-4c97-829b-645b237e5e02.png)
 
-MUITableRow 파일에서는 한 row에 보여줄 데이터의 종류와 각 row를 클릭했을 때 해당하는 상세 정보 페이지로 이동하는 경로를 커스터마이징 할 수 있습니다. 데이터는 <\*\*TableCell>이라는 새로운 컴포넌트를 생성해 경로별로 연결해주었습니다.
+MUITableRow 파일에서는 한 row에 보여줄 데이터의 종류와 각 row를 클릭했을 때 해당하는 상세 정보 페이지로 이동하는 경로를 커스터마이징 할 수 있습니다. 데이터는 `<\*\*TableCell>`이라는 새로운 컴포넌트를 생성해 경로별로 연결해주었습니다.
 
 ```ts
 // Table/MUITableRow.tsx
@@ -315,7 +314,7 @@ export default function MUITableRow() {
 ## 💡 grid
 
 그리드는 users/:id, admin_users/:id, lessons/:id 에서 사용되고 있습니다.
-<img width="600" alt="스크린샷 2022-01-12 오후 8 15 10" src="https://user-images.githubusercontent.com/50102773/149130133-ed3486f5-6bdb-4682-af89-cd88807f7126.png">
+![](https://user-images.githubusercontent.com/50102773/149130133-ed3486f5-6bdb-4682-af89-cd88807f7126.png)
 
 ### 0️⃣ Info/InfoGird.tsx
 
