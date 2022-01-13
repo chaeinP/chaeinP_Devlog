@@ -1,9 +1,9 @@
 ---
-title: Node.js_TypeScript 환경에 Sequelize 세팅하기
-date: '2022-01-11'
+title: Munetic_TypeScript 환경에 Sequelize 세팅하기
+date: '2021-12-09'
 tags: ['Munetic', 'NODEJS', 'TypeScript']
 draft: false
-summary: Munetic Project_학습 기록(2)
+summary: Munetic Project_학습 기록(1)
 ---
 
 > [Munetic github](https://github.com/innovationacademy-kr/slabs-munetic)
