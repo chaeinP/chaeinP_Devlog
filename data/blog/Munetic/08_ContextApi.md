@@ -58,6 +58,8 @@ export default function InfoProvider({ children }: Props) {
 }
 ```
 
+추가로 createContext default value로 null을 준것은 contextProvider 외부에서 해당 state값에 접근했을 시 값이 없는 잘못된 접근임을 알리기 위함입니다. 이를 통해 Provider가 감싸고 있는 영역 내에서 올바른 state 사용을 유도하기 위해 createContext 기본값을 null로 주었습니다.
+
 이상 끝!
 
 [참고 자료][리덕스 잘 쓰고 계시나요? - 벨로퍼트/리디](https://ridicorp.com/story/how-to-use-redux-in-ridi/)
