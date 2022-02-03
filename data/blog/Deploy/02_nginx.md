@@ -2,7 +2,7 @@
 title: Deploy_Nginx
 date: '2022-02-03'
 tags: ['Deploy']
-draft: true
+draft: false
 summary: 'Nginx를 이용해 배포하기'
 ---
 
