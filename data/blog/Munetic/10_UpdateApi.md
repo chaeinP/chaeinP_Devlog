@@ -2,7 +2,7 @@
 title: Munetic_[리팩토링] Rest API 디자인 가이드에 맞춰 api 수정하기
 date: '2022-01-15'
 tags: ['Munetic']
-draft: false
+draft: true
 summary: 이 Rest API로 정말 괜찮은가
 ---
 
