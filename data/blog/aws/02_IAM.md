@@ -100,3 +100,29 @@ AWS에서는 계정 보호를 위해 사용자에게 적용할 password policy�
 - Hardware Key Fob MFA Device for
   AWS GovCloud (US)
   - Provided by SurePassId(3rd party of aws)
+
+## IAM Role
+
+IAM Role는 신뢰할만한 개체에 특정 권한을 부여한다는 점에서 IAM User와 비슷하지만 access key와 같은 자격 증명이 필요없으며 한 개체에 국한되지 않고 필요한 모든 개체에 부여될 수 있다. 역할은 하나 이상의 policy로 구성된다.
+
+- 역할의 주체
+  - AWS 계정의 IAM 사용자
+  - AWS의 서비스
+  - 외부 자격 증명 공급자 서비스에 의해 인증된 외부 사용자
+
+## IAM Security tools
+
+- IAM Credentials Report(account-level)
+  - 계정 사용자와 각 사용자의 권한 수준을 모두 관리
+- IAM Access Advisor(user-level)
+  - 해당 사용자의 마지막 접근 시점을 기준으로 부여된 policy 권한과 접근한 서비스 등을 알 수 있다.
+
+## IAM Best Practice
+
+- 루트 계정은 aws 계정 관리 외 용도로는 사용하지 않는다.
+- aws 유저는 물리적으로 한 유저만을 의미한다. 한 사람이 여러개의 유저를 갖거나 여러 명이 하나의 유저를 공유하지 말아야 한다.
+- 각 유저는 각자의 개별적인 access key를 이용해 서비스에 접근한다.
+- 유저는 그룹에 할당하고 그룹에 권한을 부여한다.
+- 강력한 비밀전호 정책과 MFA 사용을 권고한다.
+- aws 서비스 사용 권한으로는 role을 사용한다.
+- 계정 감시를 위해선 IAM security tools을 활용한다.
